@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "name": "Sigiriya",
+        "description": "The ancient rock fortress, a UNESCO World Heritage site, rising majestically from the central plains.",
+        "imageUrl": "https://images.unsplash.com/photo-1588598116712-429990263690?auto=format&fit=crop&w=800&q=80",
+        "region": "Cultural Triangle"
+    },
+    {
+        "id": "2",
+        "name": "Ella",
+        "description": "A misty mountain village surrounded by lush tea plantations and breathtaking waterfalls.",
+        "imageUrl": "https://images.unsplash.com/photo-1546412414-8035e1776c9a?auto=format&fit=crop&w=800&q=80",
+        "region": "Hill Country"
+    },
+    {
+        "id": "3",
+        "name": "Galle",
+        "description": "A historic coastal town known for its well-preserved colonial fort and vibrant art scene.",
+        "imageUrl": "https://images.unsplash.com/photo-1625736341271-69bc9812759e?auto=format&fit=crop&w=800&q=80",
+        "region": "Southern Coast"
+    }
+]

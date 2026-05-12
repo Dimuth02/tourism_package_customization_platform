@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+
+    <div th:fragment="content">
+        <!-- Hero Section -->
+        <header class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1546412414-8035e1776c9a?auto=format&fit=crop&w=1920&q=80" alt="Hero Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-40"></div>
+            </div>
+            
+            <div class="relative z-10 text-center text-white px-6">
+                <h1 class="text-5xl md:text-7xl mb-6 serif">Discover Your Sri Lanka</h1>
+                <p class="text-xl md:text-2xl mb-10 font-light max-w-2xl mx-auto uppercase tracking-widest">Bespoke Journeys Tailored to Your Desires</p>
+                <a href="/packages" class="inline-block border border-white px-10 py-4 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition duration-300">Explore Packages</a>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path></svg>
+            </div>
+        </header>
+
+        <!-- Featured Destinations -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl mb-4 serif">Our Featured Destinations</h2>
+                    <div class="h-1 w-20 bg-accent-gold mx-auto mb-6"></div>
+                    <p class="text-gray-500 max-w-xl mx-auto italic font-light">Explore the most captivating corners of the island, from misty mountains to golden shores.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div th:each="dest : ${destinations}" class="group cursor-pointer">
+                        <div class="overflow-hidden mb-6 aspect-[4/5] relative">
+                            <img th:src="${dest.imageUrl}" th:alt="${dest.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                        </div>
+                        <h3 class="text-2xl mb-2 serif" th:text="${dest.name}">Destination Name</h3>
+                        <p class="text-accent-gold text-xs uppercase tracking-widest mb-4" th:text="${dest.region}">Region</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6" th:text="${dest.description}">Description goes here.</p>
+                        <a href="/packages" class="text-xs uppercase tracking-widest font-bold border-b border-black pb-1 hover:border-accent-gold hover:text-accent-gold transition">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Ethos -->
+        <section class="py-24 bg-stone-50">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1588598116712-429990263690?auto=format&fit=crop&w=800&q=80" alt="Ethos" class="shadow-2xl">
+                </div>
+                <div class="md:w-1/2">
+                    <span class="text-accent-gold uppercase text-xs tracking-widest font-bold mb-4 block">Our Philosophy</span>
+                    <h2 class="text-4xl md:text-5xl mb-8 serif">Elegance in Every Detail</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8 italic">"We believe travel should be as unique as the individual. Our platform empowers you to craft a journey that resonates with your personal sense of adventure and luxury."</p>
+                    <p class="text-gray-600 leading-relaxed mb-10">From curated hotel selections to exclusive local experiences, every element of your package is chosen to ensure an unforgettable stay in Sri Lanka.</p>
+                    <a href="/customise" class="inline-block bg-accent-gold text-white px-10 py-4 uppercase text-xs tracking-widest font-bold hover:bg-black transition duration-300">Start Customising</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
