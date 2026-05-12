@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Our Packages</title>
+</head>
+<body>
+
+    <div th:fragment="content">
+        <!-- Header Section -->
+        <section class="py-20 bg-stone-50 border-b border-gray-100">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl mb-6 serif">Our Curated Packages</h1>
+                <p class="text-gray-500 max-w-2xl mx-auto italic">Select a base journey and make it uniquely yours with our customisation options.</p>
+            </div>
+        </section>
+
+        <!-- Packages List -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="space-y-24">
+                    <div th:each="pkg, iterStat : ${packages}" class="flex flex-col md:flex-row items-center gap-12 md:gap-20" th:classappend="${iterStat.odd} ? '' : 'md:flex-row-reverse'">
+                        <div class="md:w-1/2 overflow-hidden shadow-xl">
+                            <img th:src="${pkg.imageUrl}" th:alt="${pkg.name}" class="w-full h-[400px] object-cover hover:scale-105 transition duration-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <span class="text-accent-gold uppercase text-xs tracking-widest font-bold mb-4 block" th:text="${pkg.durationDays + ' Days'}">Duration</span>
+                            <h2 class="text-3xl md:text-4xl mb-4 serif" th:text="${pkg.name}">Package Name</h2>
+                            <p class="text-xl italic text-gray-500 mb-6" th:text="${pkg.tagLine}">Tagline</p>
+                            <p class="text-gray-600 leading-relaxed mb-8" th:text="${pkg.description}">Description</p>
+                            
+                            <div class="mb-10">
+                                <h4 class="uppercase text-xs tracking-widest font-bold mb-4">Highlights</h4>
+                                <ul class="grid grid-cols-1 gap-2">
+                                    <li th:each="highlight : ${pkg.highlights}" class="flex items-center text-sm text-gray-600">
+                                        <svg class="w-4 h-4 mr-2 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span th:text="${highlight}">Highlight</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-8">
+                                <div>
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest block">Starting from</span>
+                                    <span class="text-2xl font-bold serif" th:text="${'$' + pkg.basePrice}">$0.00</span>
+                                </div>
+                                <a th:href="@{'/customise?packageId=' + ${pkg.id}}" class="bg-black text-white px-8 py-3 uppercase text-xs tracking-widest font-bold hover:bg-accent-gold transition duration-300">Customise Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

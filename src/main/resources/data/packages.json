@@ -1,0 +1,32 @@
+[
+    {
+        "id": "pkg-1",
+        "name": "Cultural Wonders",
+        "tagLine": "A journey through time",
+        "description": "Explore the majestic ruins and sacred temples of the Cultural Triangle.",
+        "basePrice": 850.0,
+        "durationDays": 5,
+        "imageUrl": "https://images.unsplash.com/photo-1588598116712-429990263690?auto=format&fit=crop&w=800&q=80",
+        "highlights": ["Sigiriya Rock Fortress", "Dambulla Cave Temple", "Anuradhapura Ancient City"]
+    },
+    {
+        "id": "pkg-2",
+        "name": "Mountain Mist",
+        "tagLine": "Serenity in the highlands",
+        "description": "Breathe in the fresh air of Ella and Nuwara Eliya, surrounded by tea estates.",
+        "basePrice": 720.0,
+        "durationDays": 4,
+        "imageUrl": "https://images.unsplash.com/photo-1546412414-8035e1776c9a?auto=format&fit=crop&w=800&q=80",
+        "highlights": ["Nine Arches Bridge", "Little Adam's Peak", "Tea Factory Visit"]
+    },
+    {
+        "id": "pkg-3",
+        "name": "Coastal Escape",
+        "tagLine": "Sun, sand, and history",
+        "description": "Relax on the golden beaches of the south and explore the historic Galle Fort.",
+        "basePrice": 980.0,
+        "durationDays": 7,
+        "imageUrl": "https://images.unsplash.com/photo-1625736341271-69bc9812759e?auto=format&fit=crop&w=800&q=80",
+        "highlights": ["Galle Fort Walk", "Whale Watching", "Beachside Relaxation"]
+    }
+]
