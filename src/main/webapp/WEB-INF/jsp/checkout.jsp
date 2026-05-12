@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Finalise Booking</title>
-</head>
-<body>
+<jsp:include page="header.jsp" />
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-    <div th:fragment="content">
         <section class="py-20 bg-stone-50 min-h-screen">
             <div class="container mx-auto px-6 max-w-4xl">
                 
@@ -21,15 +16,15 @@
                         <div class="space-y-6">
                             <div>
                                 <span class="text-[10px] uppercase tracking-widest text-stone-500 block mb-1">Package</span>
-                                <span class="text-sm font-bold" th:text="${pkg.name}">Package Name</span>
+                                <span class="text-sm font-bold">${pkg.name}</span>
                             </div>
                             <div>
                                 <span class="text-[10px] uppercase tracking-widest text-stone-500 block mb-1">Duration</span>
-                                <span class="text-sm font-bold" th:text="${pkg.durationDays + ' Days'}">Duration</span>
+                                <span class="text-sm font-bold">${pkg.durationDays} Days</span>
                             </div>
                             <div class="pt-8 border-t border-stone-700">
                                 <span class="text-[10px] uppercase tracking-widest text-stone-500 block mb-1">Total Investment</span>
-                                <span class="text-2xl font-bold serif text-accent-gold" th:text="${'$' + totalPrice}">$0.00</span>
+                                <span class="text-2xl font-bold serif text-accent-gold">$${totalPrice}</span>
                             </div>
                         </div>
                     </div>
@@ -37,9 +32,9 @@
                     <!-- Checkout Form -->
                     <div class="md:w-2/3 p-10">
                         <form action="/book" method="POST" class="space-y-8">
-                            <input type="hidden" name="packageId" th:value="${pkg.id}">
-                            <input type="hidden" name="packageName" th:value="${pkg.name}">
-                            <input type="hidden" name="totalPrice" th:value="${totalPrice}">
+                            <input type="hidden" name="packageId" value="${pkg.id}">
+                            <input type="hidden" name="packageName" value="${pkg.name}">
+                            <input type="hidden" name="totalPrice" value="${totalPrice}">
 
                             <div>
                                 <label class="block text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-2">Full Name</label>
@@ -61,7 +56,5 @@
 
             </div>
         </section>
-    </div>
 
-</body>
-</html>
+<jsp:include page="footer.jsp" />

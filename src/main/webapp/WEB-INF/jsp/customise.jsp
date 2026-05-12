@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Customise Your Journey</title>
-</head>
-<body>
+<jsp:include page="header.jsp" />
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-    <div th:fragment="content">
         <section class="py-20 bg-stone-50">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row gap-16">
@@ -18,7 +13,7 @@
                                 Back to Packages
                             </a>
                             <h1 class="text-4xl md:text-5xl mb-4 serif">Customise Your Experience</h1>
-                            <p class="text-gray-500 italic" th:text="'Personalising the ' + ${pkg.name} + ' journey.'"></p>
+                            <p class="text-gray-500 italic">Personalising the ${pkg.name} journey.</p>
                         </div>
 
                         <!-- Step 1: Accommodation -->
@@ -96,7 +91,7 @@
                             <div class="space-y-6 mb-10 text-sm">
                                 <div class="flex justify-between border-b border-gray-50 pb-4">
                                     <span class="text-gray-500">Base Package</span>
-                                    <span class="font-bold" th:text="'$' + ${pkg.basePrice}">$0.00</span>
+                                    <span class="font-bold">$${pkg.basePrice}</span>
                                 </div>
                                 <div class="flex justify-between border-b border-gray-50 pb-4">
                                     <span class="text-gray-500">Accommodation Upgrade</span>
@@ -114,12 +109,12 @@
 
                             <div class="flex justify-between items-center mb-10">
                                 <span class="text-lg uppercase tracking-widest font-bold">Total Price</span>
-                                <span class="text-3xl font-bold serif text-accent-gold" id="total-price" th:text="'$' + ${pkg.basePrice}">$0.00</span>
+                                <span class="text-3xl font-bold serif text-accent-gold" id="total-price">$${pkg.basePrice}</span>
                             </div>
 
                             <form action="/checkout" method="GET">
-                                <input type="hidden" name="packageId" th:value="${pkg.id}">
-                                <input type="hidden" name="totalPrice" id="input-total-price" th:value="${pkg.basePrice}">
+                                <input type="hidden" name="packageId" value="${pkg.id}">
+                                <input type="hidden" name="totalPrice" id="input-total-price" value="${pkg.basePrice}">
                                 <button type="submit" class="w-full bg-black text-white py-5 uppercase text-xs tracking-widest font-bold hover:bg-accent-gold transition duration-300 shadow-lg">Proceed to Booking</button>
                             </form>
                             
@@ -131,8 +126,8 @@
             </div>
         </section>
 
-        <script th:inline="javascript">
-            const basePrice = /*[[${pkg.basePrice}]]*/ 0;
+        <script>
+            const basePrice = ${pkg.basePrice};
 
             function updatePrice() {
                 let hotelPrice = 0;
@@ -163,7 +158,5 @@
                 document.getElementById('input-total-price').value = total.toFixed(2);
             }
         </script>
-    </div>
 
-</body>
-</html>
+<jsp:include page="footer.jsp" />

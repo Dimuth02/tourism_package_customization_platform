@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Home</title>
-</head>
-<body>
+<jsp:include page="header.jsp" />
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-    <div th:fragment="content">
         <!-- Hero Section -->
         <header class="relative h-screen flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 z-0">
@@ -34,16 +29,18 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div th:each="dest : ${destinations}" class="group cursor-pointer">
-                        <div class="overflow-hidden mb-6 aspect-[4/5] relative">
-                            <img th:src="${dest.imageUrl}" th:alt="${dest.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                    <c:forEach var="dest" items="${destinations}">
+                        <div class="group cursor-pointer">
+                            <div class="overflow-hidden mb-6 aspect-[4/5] relative">
+                                <img src="${dest.imageUrl}" alt="${dest.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                                <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                            </div>
+                            <h3 class="text-2xl mb-2 serif">${dest.name}</h3>
+                            <p class="text-accent-gold text-xs uppercase tracking-widest mb-4">${dest.region}</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">${dest.description}</p>
+                            <a href="/packages" class="text-xs uppercase tracking-widest font-bold border-b border-black pb-1 hover:border-accent-gold hover:text-accent-gold transition">Learn More</a>
                         </div>
-                        <h3 class="text-2xl mb-2 serif" th:text="${dest.name}">Destination Name</h3>
-                        <p class="text-accent-gold text-xs uppercase tracking-widest mb-4" th:text="${dest.region}">Region</p>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-6" th:text="${dest.description}">Description goes here.</p>
-                        <a href="/packages" class="text-xs uppercase tracking-widest font-bold border-b border-black pb-1 hover:border-accent-gold hover:text-accent-gold transition">Learn More</a>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </section>
@@ -63,7 +60,5 @@
                 </div>
             </div>
         </section>
-    </div>
 
-</body>
-</html>
+<jsp:include page="footer.jsp" />

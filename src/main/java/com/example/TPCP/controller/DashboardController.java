@@ -32,7 +32,6 @@ public class DashboardController {
         }
         
         model.addAttribute("bookings", userBookings);
-        model.addAttribute("content", "dashboard :: content");
-        return "layout";
+        return "dashboard";
     }
 }

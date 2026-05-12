@@ -30,8 +30,7 @@ public class BookingController {
 
         model.addAttribute("pkg", selectedPackage);
         model.addAttribute("totalPrice", totalPrice);
-        model.addAttribute("content", "checkout :: content");
-        return "layout";
+        return "checkout";
     }
 
     @PostMapping("/book")

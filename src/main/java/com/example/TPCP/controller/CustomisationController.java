@@ -29,7 +29,6 @@ public class CustomisationController {
         }
 
         model.addAttribute("pkg", selectedPackage);
-        model.addAttribute("content", "customise :: content");
-        return "layout";
+        return "customise";
     }
 }

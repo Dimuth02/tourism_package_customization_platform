@@ -19,7 +19,6 @@ public class HomeController {
     public String index(Model model) {
         List<Destination> destinations = jsonDbUtil.readList("destinations.json", Destination.class);
         model.addAttribute("destinations", destinations);
-        model.addAttribute("content", "index :: content");
-        return "layout";
+        return "index";
     }
 }

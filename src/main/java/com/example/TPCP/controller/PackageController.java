@@ -19,7 +19,6 @@ public class PackageController {
     public String listPackages(Model model) {
         List<TourPackage> packages = jsonDbUtil.readList("packages.json", TourPackage.class);
         model.addAttribute("packages", packages);
-        model.addAttribute("content", "packages :: content");
-        return "layout";
+        return "packages";
     }
 }
